@@ -2,7 +2,7 @@
 using EShopServices.Api.Cart.Persistence;
 using MediatR;
 
-namespace EShopServices.Api.Cart.Applicationñ
+namespace EShopServices.Api.Cart.Application
 {
     public class New
     {

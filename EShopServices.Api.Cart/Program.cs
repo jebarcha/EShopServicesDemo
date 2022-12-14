@@ -1,4 +1,4 @@
-using EShopServices.Api.Cart.Applicationñ;
+using EShopServices.Api.Cart.Application;
 using EShopServices.Api.Cart.Persistence;
 using EShopServices.Api.Cart.RemoteInterface;
 using EShopServices.Api.Cart.RemoteService;
@@ -23,7 +23,7 @@ builder.Services.AddMediatR(typeof(New.Handler).Assembly);
 
 builder.Services.AddHttpClient("Books", config =>
 {
-    config.BaseAddress = new Uri(builder.Configuration["Services:Books"]);
+    config.BaseAddress = new Uri(builder.Configuration!["Services:Books"]);
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
