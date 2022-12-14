@@ -5,10 +5,11 @@ namespace EShopServices.Api.Book.Persistence;
 
 public class ContextBookstore : DbContext
 {
+	public ContextBookstore() { }
 	public ContextBookstore(DbContextOptions<ContextBookstore> options) : base(options)
 	{
 	}
 
-	public DbSet<Model.MaterialBook> MaterialLibrary { get; set; }
+	public virtual DbSet<Model.MaterialBook> MaterialLibrary { get; set; }
 
 }
