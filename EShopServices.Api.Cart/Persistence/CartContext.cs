@@ -9,6 +9,6 @@ public class CartContext : DbContext
 	{
 	}
 
-	public DbSet<CartSession> CartSession { get; set; }
+	public DbSet<CartSession> CartSession { get; set; } = null!;
 	public DbSet<CartSessionDetail> CartSessionDetail { get; set; }
 }

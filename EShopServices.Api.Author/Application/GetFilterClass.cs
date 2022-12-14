@@ -10,7 +10,7 @@ public class GetFilterClass
 {
     public class AuthorUnique : IRequest<AuthorDto>
     {
-        public string AuthorGuid { get; set; }
+        public string AuthorGuid { get; set; } = null!;
     }
 
     public class Handler : IRequestHandler<AuthorUnique, AuthorDto>

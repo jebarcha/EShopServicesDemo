@@ -49,7 +49,7 @@ public class Get
 
             var cartSessionDto = new CartDto
             {
-                CartId = cartSession.CartSessionId,
+                CartId = cartSession!.CartSessionId,
                 CreationDate = cartSession.CreationDate,
                 ProductList= cartDtoList
             };
