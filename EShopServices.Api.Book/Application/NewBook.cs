@@ -9,7 +9,7 @@ public class NewBook
 {
     public class Execute: IRequest
     {
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
         public DateTime? PublishDate { get; set; }
         public Guid? AuthorBook { get; set; }
     }

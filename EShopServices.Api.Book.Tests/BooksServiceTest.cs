@@ -119,7 +119,7 @@ public class BooksServiceTest
 		var result = await handle.Handle(request, new System.Threading.CancellationToken());
 
 		// Assert
-		Assert.True(result != null);
-
+		//Assert.True(result != null);
+		Assert.IsType<MediatR.Unit>(result);
 	}
 }
