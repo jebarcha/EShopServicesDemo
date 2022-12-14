@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopServices.Api.Cart", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopServices.Api.Book.Tests", "EShopServices.Api.Book.Tests\EShopServices.Api.Book.Tests.csproj", "{4257AF3C-E048-4380-8F1C-53520873E311}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A97996EA-11BE-4690-902B-17C9835E4F47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{705CB218-487B-4F77-AB2F-6D81A102DF24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CD8971E-8F7A-45A9-9F2C-750D28681335} = {A97996EA-11BE-4690-902B-17C9835E4F47}
+		{0F4F1F63-61ED-4DB9-B43C-446F6A5DC8C3} = {A97996EA-11BE-4690-902B-17C9835E4F47}
+		{A529CF6C-781A-42B0-891B-9DD3C77632FB} = {A97996EA-11BE-4690-902B-17C9835E4F47}
+		{4257AF3C-E048-4380-8F1C-53520873E311} = {705CB218-487B-4F77-AB2F-6D81A102DF24}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53F9382D-7378-4B77-BAEB-656EE4E56046}
