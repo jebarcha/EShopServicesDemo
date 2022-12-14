@@ -7,7 +7,7 @@ namespace EShopServices.Api.Cart.RemoteService;
 public class BookService : IBookService
 {
     private readonly IHttpClientFactory _httpClient;
-    private readonly ILogger _logger;
+    //private readonly ILogger _logger;
 
     public BookService(IHttpClientFactory httpClient) //, ILogger logger)
     {

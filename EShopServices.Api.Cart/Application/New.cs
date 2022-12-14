@@ -9,7 +9,7 @@ namespace EShopServices.Api.Cart.Application
         public class Execute : IRequest
         {
             public DateTime SessionCreationDate { get; set; }
-            public List<string> ProductList { get; set; }
+            public List<string> ProductList { get; set; } = null!;
         }
 
         public class Handler : IRequestHandler<Execute>
