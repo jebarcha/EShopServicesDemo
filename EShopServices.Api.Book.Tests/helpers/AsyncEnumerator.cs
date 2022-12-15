@@ -10,7 +10,7 @@ public class AsyncEnumerator<T> : IAsyncEnumerator<T>
 {
     private readonly IEnumerator<T> _enumerator;
     public T Current => _enumerator.Current;
-    
+
     public AsyncEnumerator(IEnumerator<T> enumerator) => _enumerator = enumerator ?? throw new ArgumentNullException(nameof(enumerator));
 
     public async ValueTask DisposeAsync()
