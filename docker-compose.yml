@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  eshopservices.api.author:
+    image: ${DOCKER_REGISTRY-}eshopservicesapiauthor
+    build:
+      context: .
+      dockerfile: EShopServices.Api.Author/Dockerfile
+  eshopservices.api.book:
+    image: ${DOCKER_REGISTRY-}eshopservicesapibook
+    build:
+      context: .
+      dockerfile: EShopServices.Api.Book/Dockerfile
+
+networks:
+    default:
+        external:
+            name: microservicenet
+

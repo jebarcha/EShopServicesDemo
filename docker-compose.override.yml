@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  eshopservices.api.author:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6104:80"
+
+  eshopservices.api.book:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6105:80"
+
