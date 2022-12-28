@@ -12,8 +12,22 @@ services:
       context: .
       dockerfile: EShopServices.Api.Book/Dockerfile
 
+  eshopservices.api.cart:
+    image: ${DOCKER_REGISTRY-}eshopservicesapicart
+    build:
+      context: .
+      dockerfile: EShopServices.Api.Cart/Dockerfile
+
+  eshopservices.api.gateway:
+    image: ${DOCKER_REGISTRY-}eshopservicesapigateway
+    build:
+      context: .
+      dockerfile: EShopServices.Api.Gateway/Dockerfile
+
 networks:
     default:
         external:
             name: microservicenet
+
+
 

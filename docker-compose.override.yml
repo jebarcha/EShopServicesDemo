@@ -13,3 +13,22 @@ services:
     ports:
       - "6105:80"
 
+
+  eshopservices.api.cart:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Services__Books=http://eshopservices.api.book
+      - Services__Authors=http://eshopservices.api.author
+    ports:
+      - "6106:80"
+    
+
+  eshopservices.api.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Services__Author=http://eshopservices.api.gateway
+    depends_on:
+      - eshopservices.api.book
+    ports:
+      - "6107:80"
+
