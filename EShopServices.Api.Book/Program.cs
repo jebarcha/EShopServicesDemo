@@ -1,5 +1,7 @@
 using EShopServices.Api.Book.Application;
 using EShopServices.Api.Book.Persistence;
+using EShopServices.RabbitMQ.Bus.BusRabbit;
+using EShopServices.RabbitMQ.Bus.Implement;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -9,6 +11,8 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddTransient<IRabbitEventBus, RabbitEventBus>();
 
 builder.Services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<NewBook>());
 //builder.Services.AddFluentValidationAutoValidation();

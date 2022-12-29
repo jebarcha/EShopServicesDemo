@@ -1,5 +1,7 @@
 ﻿using EShopServices.Api.Book.Model;
 using EShopServices.Api.Book.Persistence;
+using EShopServices.RabbitMQ.Bus.BusRabbit;
+using EShopServices.RabbitMQ.Bus.EventQueue;
 using FluentValidation;
 using MediatR;
 
@@ -27,9 +29,11 @@ public class NewBook
     public class Handler : IRequestHandler<Execute>
     {
         public readonly ContextBookstore _context;
-        public Handler(ContextBookstore context)
+        public readonly IRabbitEventBus _eventBus;
+        public Handler(ContextBookstore context, IRabbitEventBus eventBus)
         {
             _context = context;
+            _eventBus = eventBus;
         }
 
         public async Task<Unit> Handle(Execute request, CancellationToken cancellationToken)
@@ -42,7 +46,10 @@ public class NewBook
             };
 
             _context.MaterialLibrary.Add(book);
+
             var result = await _context.SaveChangesAsync();
+
+            _eventBus.Publish(new EmailEventQueue("jebarcha@gmail.com", request.Title, "This is a demo"));
 
             if (result > 0)
             {
