@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EShopServices.Messenger.Email\EShopServices.Messenger.Email.csproj" />
     <ProjectReference Include="..\EShopServices.RabbitMQ.Bus\EShopServices.RabbitMQ.Bus.csproj" />
   </ItemGroup>
 

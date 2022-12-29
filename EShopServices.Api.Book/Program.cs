@@ -12,7 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddTransient<IRabbitEventBus, RabbitEventBus>();
+//builder.Services.AddTransient<IRabbitEventBus, RabbitEventBus>();
+builder.Services.AddSingleton<IRabbitEventBus, RabbitEventBus>(sp =>
+{
+    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+    return new RabbitEventBus(sp.GetService<IMediator>(), scopeFactory);
+});
 
 builder.Services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<NewBook>());
 //builder.Services.AddFluentValidationAutoValidation();

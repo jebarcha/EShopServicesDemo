@@ -49,7 +49,7 @@ public class NewBook
 
             var result = await _context.SaveChangesAsync();
 
-            _eventBus.Publish(new EmailEventQueue("jebarcha@gmail.com", request.Title, "This is a demo"));
+            _eventBus.Publish(new EmailEventQueue("jebarcha@hotmail.com", request.Title, "This is a demo"));
 
             if (result > 0)
             {

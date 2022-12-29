@@ -1,6 +1,8 @@
 using EShopServices.Api.Author.Application;
 using EShopServices.Api.Author.Persistence;
 using EShopServices.Api.Author.RabbitHandler;
+using EShopServices.Messenger.Email.SendGridLibrary.Implement;
+using EShopServices.Messenger.Email.SendGridLibrary.Interface;
 using EShopServices.RabbitMQ.Bus.BusRabbit;
 using EShopServices.RabbitMQ.Bus.EventQueue;
 using EShopServices.RabbitMQ.Bus.Implement;
@@ -12,7 +14,17 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddTransient<IRabbitEventBus, RabbitEventBus>();
+builder.Services.AddSingleton<IRabbitEventBus, RabbitEventBus>( sp =>
+{
+    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+    return new RabbitEventBus(sp.GetService<IMediator>(), scopeFactory);
+});
+
+
+builder.Services.AddSingleton<IMySendGrid, MySendGrid>();
+
+builder.Services.AddTransient<EmailEventHandler>();
+
 builder.Services.AddTransient<IEventHandler<EmailEventQueue>, EmailEventHandler>();
 
 // Add services to the container.
